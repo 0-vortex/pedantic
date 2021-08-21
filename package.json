@@ -1,0 +1,92 @@
+{
+  "name": "0-vortex/pedantic",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Personal GitHub intelligence crawler",
+  "main": "main.js",
+  "scripts": {
+    "docker:up": "docker compose up --detach --remove-orphans",
+    "docker:down": "docker compose down --debug",
+    "docker:logs": "docker compose logs --debug",
+    "docker:reload": "npm run docker:down && npm run docker:up",
+    "docker:build": "docker build --no-cache .",
+    "docs": "compodoc -p tsconfig.json --hideGenerator --disableDependencies -d ./dist/documentation ./src",
+    "docs:serve": "npm run docs -- --serve",
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"{src,test}/**/*.{js,ts}\" --report-unused-disable-directives",
+    "format": "npm run lint -- --fix",
+    "push": "cz",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:0-vortex/pedantic.git"
+  },
+  "keywords": [],
+  "author": "TED Vortex <ted.vortex@gmail.com>",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  },
+  "license": "unlicensed",
+  "bugs": {
+    "url": "https://github.com/0-vortex/pedantic/issues"
+  },
+  "homepage": "https://github.com/0-vortex/pedantic#readme",
+  "dependencies": {
+    "@nestjs/common": "^7.6.14",
+    "@nestjs/config": "^0.6.3",
+    "@nestjs/core": "^7.6.14",
+    "@nestjs/platform-fastify": "^7.6.14",
+    "@nestjs/swagger": "^4.7.16",
+    "@nestjs/typeorm": "^7.1.5",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "fastify-helmet": "^5.3.2",
+    "fastify-rate-limit": "^5.6.1",
+    "fastify-swagger": "^4.9.0",
+    "joi": "^17.4.2",
+    "nestjs-pino": "^1.4.0",
+    "pg": "^8.7.1",
+    "psl": "^1.8.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.6",
+    "typeorm": "^0.2.37"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.14",
+    "@nestjs/cli": "^7.5.6",
+    "@nestjs/schematics": "^7.3.0",
+    "@nestjs/testing": "^7.6.14",
+    "@open-sauced/semantic-release-conventional-config": "^1.2.0",
+    "@types/joi": "^17.2.2",
+    "@types/node": "^16.7.1",
+    "@types/psl": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^13.0.0",
+    "eslint-plugin-import": "^2.24.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "pino-pretty": "^6.0.0",
+    "semantic-release": "^17.4.5",
+    "ts-loader": "^9.2.5",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

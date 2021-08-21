@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:13-alpine
+    container_name: "1pxi-postgres"
+    environment:
+      POSTGRES_USER: "pedantic-crawler"
+      POSTGRES_PASSWORD: "FJK3zrH2WGxKck7tT2JG4MY6wbHkeX9s"
+      POSTGRES_DB: "pedantic-dev"
+    ports:
+      - 5432:5432
+    volumes:
+      - ps-data:/var/lib/postgresql/data
+      - .:/repository
+
+volumes:
+  ps-data:
+    driver: local
